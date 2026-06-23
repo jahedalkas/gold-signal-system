@@ -1,0 +1,30 @@
+================================================================
+  GOLD MULTI-FACTOR STRATEGY — PERFORMANCE SUMMARY
+================================================================
+
+Metric                        Strategy    Buy & Hold
+----------------------------------------------------------------
+Total return                     1.64%        84.16%
+CAGR                             0.81%        35.22%
+Sharpe ratio                     -0.56          1.24
+Sortino ratio                    -0.60          1.46
+Max drawdown                    -6.67%       -22.85%
+Calmar ratio                      0.12          1.54
+Annual volatility                5.47%        23.44%
+
+  Trade statistics (strategy)
+----------------------------------------------------------------
+Number of trades                    55
+Win rate                        56.36%
+Average win                      2.54%
+Average loss                    -2.67%
+Profit factor                     1.09
+Avg holding (days)               10.29
+Best trade                       8.56%
+Worst trade                     -6.73%
+Max DD duration (days)              99
+
+================================================================
+  Educational/research use only. Not financial advice.
+  Past performance does not guarantee future results.
+================================================================

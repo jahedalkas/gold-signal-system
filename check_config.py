@@ -1,0 +1,39 @@
+import re
+
+f = open('config.py')
+src = f.read()
+f.close()
+
+needed = [
+    'ATR_PERIOD', 'RISK_FREE_RATE', 'SLIPPAGE_PCT', 'STARTING_CAPITAL',
+    'TRADING_DAYS_PER_YEAR', 'TRANSACTION_COST_PCT', 'VOL_SCALING_LOOKBACK',
+    'BUY_THRESHOLD', 'COMBINER_AUC_WINDOW', 'COMBINER_CRISIS_MACRO_WEIGHT',
+    'COMBINER_CRISIS_VIX', 'COMBINER_ML_AUC_BOOST_THRESHOLD',
+    'COMBINER_ML_BOOSTED_WEIGHT', 'ML_MIN_CONFIDENCE', 'ML_PREDICTION_HORIZON',
+    'ML_REGRESSOR_RETURN_SCALE', 'SELL_THRESHOLD', 'SIGNAL_WEIGHTS',
+    'STRONG_BUY_THRESHOLD', 'STRONG_SELL_THRESHOLD', 'ADX_RANGE_THRESHOLD',
+    'ADX_TREND_THRESHOLD', 'DAILY_LOSS_LIMIT_PCT', 'KELLY_FRACTION',
+    'MAX_CONSECUTIVE_LOSSES', 'MAX_POSITION_PCT', 'MIN_POSITION_PCT',
+    'PAUSE_COOLDOWN_DAYS', 'STOP_LOSS_ATR_MULTIPLE', 'TAKE_PROFIT_ATR_MULTIPLE',
+    'TRAILING_STOP_ATR_MULTIPLE', 'VIX_CRISIS_THRESHOLD', 'VOL_SCALING_TRIGGER',
+    'CHARTS_DIR', 'EMA_FAST', 'EMA_LONG', 'EMA_SLOW', 'REPORTS_DIR',
+    'ROLLING_METRIC_WINDOW', 'PRIMARY_ASSET', 'YF_TICKERS'
+]
+
+missing = []
+present = []
+
+for p in sorted(set(needed)):
+    if re.search(r'^' + p + r'\s*=', src, re.MULTILINE):
+        present.append(p)
+    else:
+        missing.append(p)
+
+print('PRESENT:')
+for p in present:
+    print(f'  + {p}')
+
+print()
+print('MISSING:')
+for m in missing:
+    print(f'  - {m}')

@@ -1,0 +1,48 @@
+# =============================================================================
+# Gold (XAU/USD) Multi-Factor Signal & Backtesting System — dependencies
+# Python 3.10+ required.  Install with:  pip install -r requirements.txt
+# -----------------------------------------------------------------------------
+# Notes:
+#   * These pins are a known-compatible stack tested against the pandas 2.2.x
+#     line, which the ML ecosystem (xgboost, shap) supports most reliably.
+#     pandas 3.x works but is very new; if you hit a dependency conflict,
+#     stay on pandas 2.2.x as pinned below.
+#   * numpy is pinned to the 1.26 line because some compiled wheels (xgboost,
+#     shap) still resolve more cleanly against numpy 1.x than 2.x.
+# =============================================================================
+
+# --- Core data stack ---------------------------------------------------------
+pandas==2.2.3
+numpy==1.26.4
+python-dotenv==1.0.1
+requests==2.32.3
+
+# --- Market & macro data -----------------------------------------------------
+yfinance==0.2.51        # Gold, silver, DXY, VIX, S&P, oil, 10Y, GLD volume
+fredapi==0.5.2          # FRED macro series (CPI, real yields, M2)
+
+# --- Technical indicators ----------------------------------------------------
+ta==0.11.0              # RSI, MACD, Bollinger, ATR, ADX, OBV, Stochastic
+
+# --- Machine learning --------------------------------------------------------
+scikit-learn==1.5.2
+xgboost==2.1.4
+shap==0.46.0
+
+# --- Sentiment (lightweight default) -----------------------------------------
+feedparser==6.0.11      # RSS fallback for news headlines
+textblob==0.18.0.post0  # Lightweight polarity scoring (no GPU, no torch)
+
+# --- Reporting ---------------------------------------------------------------
+matplotlib==3.9.2
+plotly==5.24.1
+
+# =============================================================================
+# OPTIONAL — FinBERT sentiment (more accurate, but heavy: pulls in PyTorch).
+# Only install if you want transformer-based scoring. The system automatically
+# falls back to TextBlob when these are NOT installed, so they are optional.
+# A standard laptop without a GPU will run FinBERT slowly on first load.
+# -----------------------------------------------------------------------------
+# transformers==4.44.2
+# torch==2.4.1
+# =============================================================================
